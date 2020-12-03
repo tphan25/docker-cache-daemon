@@ -34,7 +34,7 @@ func main() {
 			for _, image := range images {
 				if len(image.RepoTags) > 0 {
 					log.Println("Retrieving image with tags " + image.RepoTags[0])
-					imagePull(ctx, dockerClient, image.RepoTags[0])
+					go imagePull(ctx, dockerClient, image.RepoTags[0])
 				} else {
 					log.Println("No repo tags found on image")
 				}
